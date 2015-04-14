@@ -1,1 +1,5 @@
-Methodology: Generating a file instead of a 
+Methodology: Generating a file a.txt containing all operator and number permutation
+e.g
+num1 num2 num3 op op op op
+
+Modify code in Runfile to run
