@@ -24,7 +24,26 @@ def running(Result):
 
 		#list 1 is the permutation of the operators (one of the Cartesian Products)
 		list1= opList[m]
-
+		if list1 == ("+", "+", "+", "+", "+") or list1 == ("*", "*", "*", "*", "*"):
+			k = f.readline()
+			k.rstrip('/n')
+			for m in range(len(numlist)):
+				#replace the stuff in the file (num1, num2,...) with the actual number from number list
+				k=k.replace(num[m], numlist[m])
+			#This is to replace the first 4 operators
+			for n in range(len(list1)):
+				k=k.replace("op", list1[n], 1)
+			#This is to replace the last operat
+			#laststring = "%s" %list1[4]
+			#k=k.replace("op", laststring, 1)
+			if Cal(k)!= None:
+				if round(Cal(k), 3) == round(float(Result),3):
+					#stop all program after the first exprsesion is found
+					print "abc"
+					return k
+					break
+			count +=1
+			continue					
 		#This part is to load the file
 		for k in f:
 			k.rstrip('/n')
@@ -37,15 +56,16 @@ def running(Result):
 			#This is to replace the last operat
 			#laststring = "%s" %list1[4]
 			#k=k.replace("op", laststring, 1)
-			if round(Cal(k), 3) == round(float(Result),3):
-				#stop all program after the first exprsesion is found
-				print k
-				return k
-				break 
+			if Cal(k) != None:
+				if round(Cal(k), 3) == round(float(Result),3):
+					#stop all program after the first exprsesion is found
+					print k
+					return k
+					break 
 		count +=1
 		print count
 		f.close()
 ## Run the code by printing the function 
-print running(890.000)
+print running(899.000)
 
 

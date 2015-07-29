@@ -26,8 +26,13 @@ def Cal(expression):
 		#the last number in the stack will be the result of the reverse polish calculation
 		return stack.pop()
 	except:
-		#if the expression is incorrect (or things like divide by 0), return None
-		return 0.0
-#print Cal("6 6 + 1 25 / - 75 * 7 - ") 
+		return None
+	# This piece of error handling is for Generator module
+	# except ZeroDivisionError:
+	# 	#if the expression is incorrect (or things like divide by 0), return None
+	# 	return 15
+	# 	raise
+	# except:
+	# 	return None
 
 
